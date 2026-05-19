@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ClerkProvider, Show, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 import { Toaster } from "react-hot-toast";
-
+import Header from "@/components/layout/Header";
 
 
 export const metadata: Metadata = {
@@ -22,7 +22,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <ClerkProvider>
-          
+          <Header />
           {children}
         </ClerkProvider>
 
