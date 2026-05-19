@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useRef, useEffect } from 'react'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, Link } from 'lucide-react'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -25,12 +25,12 @@ export default function Navbar() {
 
       <ul className="flex items-center gap-8 text-sm font-medium">
         <li>
-          <a 
+          <Link 
             href="/" 
             className="text-white hover:text-[#ff8c00] hover:underline underline-offset-8 decoration-2 transition-colors duration-200"
           >
             Home
-          </a>
+          </Link>
         </li>
 
         <li ref={dropdownRef} className="relative">
