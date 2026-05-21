@@ -18,19 +18,20 @@ export default function Navbar() {
   }, [])
 
   return (
-    <nav className="relative flex items-center justify-between bg-[#121212] px-12 py-6 text-white font-sans">
+    <nav className="w-full bg-[#121212] py-6 text-white font-sans">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-12 flex items-center justify-between">
       <div className="text-xl font-semibold tracking-wide">
         HIDR NEPAL
       </div>
 
-      <ul className="flex items-center gap-8 text-sm font-medium">
+      <ul className="flex items-center gap-8 text-xl font-medium">
         <li>
-          <Link 
+          <a 
             href="/" 
             className="text-white hover:text-[#ff8c00] hover:underline underline-offset-8 decoration-2 transition-colors duration-200"
           >
             Home
-          </Link>
+          </a>
         </li>
 
         <li ref={dropdownRef} className="relative">
@@ -88,6 +89,7 @@ export default function Navbar() {
           </a>
         </li>
       </ul>
+      </div>
     </nav>
   )
 }
