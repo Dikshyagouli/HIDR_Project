@@ -4,21 +4,21 @@ import React from "react"
 import Image from "next/image"
 import Link from "next/link"
 
-import BlogHero from "@/public/blog-hero.png"
-import BlogFeatured from "@/public/blog-featured.jpg"
-import Blog1 from "@/public/b1.jpg"
-import Blog2 from "@/public/b2.jpg"
-import Blog3 from "@/public/b3.jpg"
-import Blog4 from "@/public/b4.jpg"
-import Blog5 from "@/public/b5.jpg"
-import Blog6 from "@/public/b6.jpg"
+import BlogHero from "../../../public/blog-hero.png"
+import BlogFeatured from "../../../public/blog-featured.jpg"
+import Blog1 from "../../../public/b1.jpg"
+import Blog2 from "../../../public/b2.jpg"
+import Blog3 from "../../../public/b3.jpg"
+import Blog4 from "../../../public/b4.jpg"
+import Blog5 from "../../../public/b5.jpg"
+import Blog6 from "../../../public/b6.jpg"
 
 interface BlogCard {
   id: number
   title: string
   description: string
   date: string
-  imageSrc: string
+  imageSrc: any 
   slug: string
 }
 
@@ -26,20 +26,26 @@ export default function BlogPage() {
   return (
     <div className="w-full bg-[#f4f9f9] select-none font-sans min-h-screen">
       
-      <div className="relative w-full h-[280px] md:h-[340px] bg-[#0a192f] overflow-hidden">
-        <Image
-          src={BlogHero}
-          alt="Blogs Banner"
-          fill
-          priority
-          className="object-cover opacity-45 mix-blend-luminosity"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/50" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-          <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-3">
+      {/* Banner Section */}
+      <div className="relative w-full h-[200px] md:h-[300px] bg-[#061a2e]">
+        <div className="absolute inset-0 left-0 md:left-[0%] w-full h-full">
+          <Image
+            src={BlogHero}
+            alt="Blogs Banner Illustration"
+            fill
+            priority
+            className="object-cover object-right md:object-center"
+          />
+        </div>
+
+        <div className="absolute inset-0 bg-gradient-to-r from-[#061a2e] via-[#061a2e]/95 to-transparent md:via-[#061a2e]/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10" />
+
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10">
+          <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-4">
             Blogs and News
           </h1>
-          <p className="text-gray-300 text-sm md:text-base max-w-2xl font-light leading-relaxed">
+          <p className="text-gray-200 text-sm md:text-base max-w-2xl font-normal leading-relaxed drop-shadow-sm">
             Sharing knowledge, policy insights, and evidence-based research on key development issues shaping Nepal.
           </p>
         </div>
@@ -47,47 +53,52 @@ export default function BlogPage() {
 
       <div className="max-w-[1240px] mx-auto px-6 lg:px-12 py-16">
         
+        {/* Featured Post Section */}
         <div className="mb-20">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-[5px] h-8 bg-[#ff8c00] rounded-sm" />
-            <h2 className="text-2xl md:text-3xl font-bold text-[#12161a] tracking-tight">
+          <div className="flex items-center gap-3 mb-8 justify-center">
+            <div className="w-1 h-8 bg-[#ff8c00] " />
+            <h2 className="text-3xl md:text-4xl font-bold text-[#ff8c00] ">
               Our Blog
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white border border-gray-100 shadow-sm p-4 md:p-6 rounded-2xl">
-            <div className="relative lg:col-span-5 w-full aspect-[4/3] rounded-xl overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
+            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-sm">
               <Image
                 src={BlogFeatured}
                 alt={featuredPost.title}
                 fill
+                priority
                 className="object-cover"
               />
             </div>
-            <div className="lg:col-span-7 flex flex-col justify-between h-full py-2">
+
+            <div className="flex flex-col justify-between h-full py-1">
               <div>
-                <h3 className="text-xl md:text-2xl font-bold text-[#12161a] tracking-tight leading-snug mb-4 font-serif">
+                <h3 className="text-xl md:text-2xl font-bold text-[#12161a] tracking-tight leading-snug mb-4">
                   {featuredPost.title}
                 </h3>
-                <p className="text-gray-600 text-sm md:text-base font-normal leading-relaxed mb-6 line-clamp-5">
+                <p className="text-gray-500 text-sm md:text-base font-normal leading-relaxed mb-6">
                   {featuredPost.description}
                 </p>
               </div>
-              <div className="flex items-center justify-between pt-2 border-t border-gray-50">
-                <span className="text-xs md:text-sm font-semibold text-[#ff8c00]">
+
+              <div className="flex items-center justify-between pt-2">
+                <span className="text-sm font-semibold text-[#ff8c00]">
                   {featuredPost.date}
                 </span>
                 <Link
                   href={`/features/blogs/${featuredPost.slug}`}
-                  className="text-xs md:text-sm font-bold text-[#ff8c00] hover:text-[#e07b00] transition-colors flex items-center gap-1"
+                  className="text-sm font-semibold text-[#ff8c00] hover:text-[#e07b00] transition-colors"
                 >
-                  Read More &rarr;
+                  Read More
                 </Link>
               </div>
             </div>
           </div>
         </div>
 
+        {/* Recent Blogs Grid */}
         <div>
           <h2 className="text-2xl md:text-3xl font-bold text-[#ff8c00] text-center tracking-tight mb-12">
             Recent Blogs
@@ -104,7 +115,7 @@ export default function BlogPage() {
                     src={blog.imageSrc}
                     alt={blog.title}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-102"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                   />
                 </div>
 
@@ -144,18 +155,17 @@ const featuredPost = {
   title: "16 Days of Activism Against Gender Based Violence",
   description: "The 16 Days of Activism against Gender-Based Violence is an annual international campaign led by members of the civil society to combat violence against women and children. Beginning on November 25, the International Day for the Elimination of Violence against Women, and concluding on December 10, Human Rights Day, the campaign emphasizes that violence against women and girls is one of the most widespread violations of human rights.",
   date: "16th Feb, 2026",
-  imageSrc: BlogFeatured,
   slug: "16-days-of-activism"
 }
 
 const recentBlogs: BlogCard[] = [
   {
     id: 1,
-    title: "Femicide",
-    description: "Every 10 minutes, partners and family members killed a woman or a girl intentionally in 2023.",
-    date: "Nov 28, 2025",
-    imageSrc: Blog1,
-    slug: "femicide"
+    title: "Exploring Generative AI in Content Creation",
+    description: "Google encourages high-quality blogs regardless of whether they're written by humans or created using artificial intelligence like ChatGPT based on E-E-A-T principles.",
+    date: "May 26, 2026",
+    imageSrc: Blog1, 
+    slug: "generative-ai"
   },
   {
     id: 2,

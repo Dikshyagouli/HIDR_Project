@@ -1,7 +1,6 @@
 import React from 'react'
 import HeroSlider from '@/components/layout/HeroSlider'
 import RecentPublication from '@/components/RecentPublication'
-import Footer from '@/components/layout/Footer'
 import WhatWeOffer from '@/components/WhatWeOffer';
 import RecentEvent from '@/components/RecentEvent';
 import OurPublication from '@/components/OurPublication';
@@ -17,8 +16,6 @@ export default function HomePage() {
         <RecentEvent />
         <OurPublication />
       </main>
-
-      <Footer />
     </div>
   )
 }

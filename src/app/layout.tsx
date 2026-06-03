@@ -3,6 +3,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "react-hot-toast";
 import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
   title: "HIDR Nepal",
@@ -23,6 +24,7 @@ export default function RootLayout({
         </ClerkProvider>
 
         <Toaster toastOptions={{ duration: 1500 }} />
+        <Footer  />
       </body>
     </html>
   );

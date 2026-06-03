@@ -71,7 +71,7 @@ export default function Navbar() {
 
           <li>
             <Link 
-              href="/features/contact-us" 
+              href="/features/career" 
               className="text-white hover:text-[#ff8c00] hover:underline underline-offset-8 decoration-2 transition-colors duration-200"
             >
               Careers
