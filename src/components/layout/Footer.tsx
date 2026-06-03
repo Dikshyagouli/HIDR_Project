@@ -93,7 +93,7 @@ export default function Footer() {
 
               <li>
                 <Link
-                  href="/about"
+                  href="/features/about"
                   className="hover:text-[#ff8c00] transition duration-300"
                 >
                   About Us
@@ -102,7 +102,7 @@ export default function Footer() {
 
               <li>
                 <Link
-                  href="/gallery"
+                  href="/features/gallery"
                   className="hover:text-[#ff8c00] transition duration-300"
                 >
                   Gallery
@@ -111,7 +111,7 @@ export default function Footer() {
 
               <li>
                 <Link
-                  href="/contact"
+                  href="/features/contact"
                   className="hover:text-[#ff8c00] transition duration-300"
                 >
                   Contact Us

@@ -1,7 +1,7 @@
 "use client"
 
-import React from "react"
-import Image from "next/image"
+import React from "react";
+import Image from "next/image";
 
 interface OfferCard {
   id: number
@@ -55,12 +55,13 @@ export default function WhatWeOffer() {
             >
               <div>
                 <div className="relative w-full aspect-[16/10] overflow-hidden">
-                  <img
+                  < Image
                     src={card.imageSrc}
                     alt={card.title}
                     className="w-full h-full object-cover transition-transform duration-500 "
-                    loading="lazy"
-                  />
+                    loading= "lazy"
+                    fill
+                    />
                 </div>
 
                 <div className="p-6 md:p-7 flex flex-col space-y-3">

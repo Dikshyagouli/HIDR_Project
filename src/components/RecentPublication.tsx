@@ -1,6 +1,6 @@
-import React from 'react'
-import Image from 'next/image'
-import publicationImg from '@/public/recent-publication1.jpg' 
+import React from 'react';
+import Image from 'next/image';
+import publicationImg from '@/public/recent-publication1.jpg'; 
 export default function RecentPublication() {
   return (
     <section className="w-full bg-white py-16 font-sans">
@@ -28,19 +28,19 @@ export default function RecentPublication() {
 
           <div className="w-full flex flex-col justify-start pt-2">
             <h3 className="text-gray-900 font-bold text-xl md:text-2xl leading-snug tracking-tight mb-6">
-              Nepal's Gen-Z Movement-Youth's Views and Voices about Political Future
+              Nepal&apos;s Gen-Z Movement-Youth&apos;s Views and Voices about Political Future
             </h3>
 
             <div className="space-y-4 text-gray-700 text-sm md:text-base leading-relaxed font-normal">
               <p>
-                Nepal's Gen-Z Movement: Youth's Views and Voices about Political 
+                Nepal&apos;s Gen-Z Movement: Youth&apos;s Views and Voices about Political 
                 Future examines the September 2025 Gen-Z uprising as a critical 
-                moment in Nepal's contemporary political trajectory, situating it within 
+                moment in Nepal&apos;s contemporary political trajectory, situating it within 
                 longer-term patterns of political instability, economic stagnation, and 
                 governance failure.
               </p>
               <p>
-                The study argues that while triggered by the government's social media 
+                The study argues that while triggered by the government&apos;s social media 
                 restrictions, the movement reflected deeper structural frustrations, 
                 particularly around corruption, lack of economic opportunity, and 
                 declining trust in political leadership, shared widely across Nepali 

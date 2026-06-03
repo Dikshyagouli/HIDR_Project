@@ -114,7 +114,7 @@ export default function CareerPage() {
               Career Openings
             </h2>
             <p className="text-gray-500 text-xs md:text-sm leading-relaxed">
-              We're always looking for creative, talented self-starters to join the HIDR family. Check out our open roles below and fill out an application.
+              We&apos;re always looking for creative, talented self-starters to join the HIDR family. Check out our open roles below and fill out an application.
             </p>
           </div>
 

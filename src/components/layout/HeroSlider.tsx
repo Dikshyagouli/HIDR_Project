@@ -55,33 +55,7 @@ export default function HeroSlider() {
 
   return (
     <div className="relative w-full h-screen overflow-hidden bg-black select-none">
-      <style jsx global>{`
-        @keyframes riseUpAndOut {
-  0% {
-    opacity: 0;
-    /* Reduced distance so the movement feels slower and more gentle */
-    transform: translateY(80px);
-  }
-  /* Stretched to 60% so it takes more than 2 full seconds just to complete the fade up */
-  60% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  85% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-}
-
-.intro-rise-animation {
-  animation: riseUpAndOut 3.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-      `}</style>
-
+      
       {/* Background Image: Stays perfectly stable without tracking movement */}
       <Image
         src={showIntro ? bgImage1 : slides[current].image}

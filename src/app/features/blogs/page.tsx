@@ -1,26 +1,91 @@
 "use client"
 
 import React from "react"
-import Image from "next/image"
+import Image, { StaticImageData } from "next/image"
 import Link from "next/link"
 
-import BlogHero from "../../../public/blog-hero.png"
-import BlogFeatured from "../../../public/blog-featured.jpg"
-import Blog1 from "../../../public/b1.jpg"
-import Blog2 from "../../../public/b2.jpg"
-import Blog3 from "../../../public/b3.jpg"
-import Blog4 from "../../../public/b4.jpg"
-import Blog5 from "../../../public/b5.jpg"
-import Blog6 from "../../../public/b6.jpg"
+import BlogHero from "@/public/blog-hero.png"
+import BlogFeatured from "@/public/blog-featured.jpg"
+import Blog1 from "@/public/b1.jpg"
+import Blog2 from "@/public/b2.jpg"
+import Blog3 from "@/public/b3.jpg"
+import Blog4 from "@/public/b4.jpg"
+import Blog5 from "@/public/b5.jpg"
+import Blog6 from "@/public/b6.jpg"
 
 interface BlogCard {
   id: number
   title: string
   description: string
   date: string
-  imageSrc: any 
+  imageSrc: StaticImageData
   slug: string
 }
+
+const featuredPost = {
+  title: "16 Days of Activism Against Gender Based Violence",
+  description:
+    "The 16 Days of Activism against Gender-Based Violence is an annual international campaign led by members of the civil society to combat violence against women and children. Beginning on November 25, the International Day for the Elimination of Violence against Women, and concluding on December 10, Human Rights Day, the campaign emphasizes that violence against women and girls is one of the most widespread violations of human rights.",
+  date: "16th Feb, 2026",
+  slug: "16-days-of-activism",
+}
+
+const mainDirectoryBlogs: BlogCard[] = [
+  {
+    id: 1,
+    title: "Exploring Generative AI in Content Creation",
+    description:
+      "Google encourages high-quality blogs regardless of whether they're written by humans or created using artificial intelligence like ChatGPT based on E-E-A-T principles.",
+    date: "May 26, 2026",
+    imageSrc: Blog1,
+    slug: "generative-ai",
+  },
+  {
+    id: 2,
+    title: "Marital Rape",
+    description:
+      "We at HIDR created a problem, impact and solution tree for marital rape as a team activity.",
+    date: "Mar 12, 2026",
+    imageSrc: Blog2,
+    slug: "marital-rape",
+  },
+  {
+    id: 3,
+    title: "Slogans about Gender Based",
+    description:
+      "We at HIDR created slogans about gender based violence in the workplace.",
+    date: "Dec 01, 2025",
+    imageSrc: Blog3,
+    slug: "slogans-gbv",
+  },
+  {
+    id: 4,
+    title: "Mental Health",
+    description:
+      "Every 10 minutes, partners and family members killed a woman or a girl intentionally in 2023.",
+    date: "Nov 28, 2025",
+    imageSrc: Blog4,
+    slug: "mental-health",
+  },
+  {
+    id: 5,
+    title: "PWDs and GBV",
+    description:
+      "40% of women with disability have experienced sexual violence as women without disabilities.",
+    date: "Jan 23, 2024",
+    imageSrc: Blog5,
+    slug: "pwds-and-gbv",
+  },
+  {
+    id: 6,
+    title: "Art for GBV",
+    description:
+      "Art is a powerful tool for advocacy and transformation. It gives voice to emotions.",
+    date: "Nov 28, 2025",
+    imageSrc: Blog6,
+    slug: "art-for-gbv",
+  },
+]
 
 export default function BlogPage() {
   return (
@@ -28,7 +93,7 @@ export default function BlogPage() {
       
       {/* Banner Section */}
       <div className="relative w-full h-[200px] md:h-[300px] bg-[#061a2e]">
-        <div className="absolute inset-0 left-0 md:left-[0%] w-full h-full">
+        <div className="absolute inset-0 w-full h-full">
           <Image
             src={BlogHero}
             alt="Blogs Banner Illustration"
@@ -37,10 +102,8 @@ export default function BlogPage() {
             className="object-cover object-right md:object-center"
           />
         </div>
-
         <div className="absolute inset-0 bg-gradient-to-r from-[#061a2e] via-[#061a2e]/95 to-transparent md:via-[#061a2e]/70" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10" />
-
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10">
           <h1 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-4">
             Blogs and News
@@ -56,8 +119,8 @@ export default function BlogPage() {
         {/* Featured Post Section */}
         <div className="mb-20">
           <div className="flex items-center gap-3 mb-8 justify-center">
-            <div className="w-1 h-8 bg-[#ff8c00] " />
-            <h2 className="text-3xl md:text-4xl font-bold text-[#ff8c00] ">
+            <div className="w-1 h-8 bg-[#ff8c00]" />
+            <h2 className="text-3xl md:text-4xl font-bold text-[#ff8c00]">
               Our Blog
             </h2>
           </div>
@@ -105,7 +168,7 @@ export default function BlogPage() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {recentBlogs.map((blog) => (
+            {mainDirectoryBlogs.map((blog) => (
               <div
                 key={blog.id}
                 className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden flex flex-col h-full group"
@@ -150,61 +213,3 @@ export default function BlogPage() {
     </div>
   )
 }
-
-const featuredPost = {
-  title: "16 Days of Activism Against Gender Based Violence",
-  description: "The 16 Days of Activism against Gender-Based Violence is an annual international campaign led by members of the civil society to combat violence against women and children. Beginning on November 25, the International Day for the Elimination of Violence against Women, and concluding on December 10, Human Rights Day, the campaign emphasizes that violence against women and girls is one of the most widespread violations of human rights.",
-  date: "16th Feb, 2026",
-  slug: "16-days-of-activism"
-}
-
-const recentBlogs: BlogCard[] = [
-  {
-    id: 1,
-    title: "Exploring Generative AI in Content Creation",
-    description: "Google encourages high-quality blogs regardless of whether they're written by humans or created using artificial intelligence like ChatGPT based on E-E-A-T principles.",
-    date: "May 26, 2026",
-    imageSrc: Blog1, 
-    slug: "generative-ai"
-  },
-  {
-    id: 2,
-    title: "Marital Rape",
-    description: "We at HIDR created a problem, impact and solution tree for marital rape as a team activity.",
-    date: "Mar 12, 2026",
-    imageSrc: Blog2,
-    slug: "marital-rape"
-  },
-  {
-    id: 3,
-    title: "Slogans about Gender Based",
-    description: "We at HIDR created slogans about gender based violence in the workplace.",
-    date: "Dec 01, 2025",
-    imageSrc: Blog3,
-    slug: "slogans-gbv"
-  },
-  {
-    id: 4,
-    title: "Mental Health",
-    description: "Every 10 minutes, partners and family members killed a woman or a girl intentionally in 2023.",
-    date: "Nov 28, 2025",
-    imageSrc: Blog4,
-    slug: "mental-health"
-  },
-  {
-    id: 5,
-    title: "PWDs and GBV",
-    description: "40% of women with disability have experienced sexual violence as women without disabilities.",
-    date: "Jan 23, 2024",
-    imageSrc: Blog5,
-    slug: "pwds-and-gbv"
-  },
-  {
-    id: 6,
-    title: "Art for GBV",
-    description: "Art is a powerful tool for advocacy and transformation. It gives voice to emotions.",
-    date: "Nov 28, 2025",
-    imageSrc: Blog6,
-    slug: "art-for-gbv"
-  }
-]
