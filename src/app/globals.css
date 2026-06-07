@@ -129,28 +129,38 @@
   }
 }
 
-@keyframes riseUpAndOut {
+.intro-rise-animation {
+  animation: riseToCenter 5s ease-out forwards;
+}
+
+@keyframes riseToCenter {
   0% {
     opacity: 0;
-    transform: translateY(80px);
+    transform: translateY(350px);
   }
 
-  60% {
+  15% {
     opacity: 1;
-    transform: translateY(0);
-  }
-
-  85% {
-    opacity: 1;
-    transform: translateY(0);
   }
 
   100% {
-    opacity: 0;
-    transform: translateY(-20px);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.intro-rise-animation {
-  animation: riseUpAndOut 3.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+.hero-fade-in {
+  animation: fadeHero 1s ease forwards;
+}
+
+@keyframes fadeHero {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

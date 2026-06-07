@@ -38,7 +38,7 @@ export default function HeroSlider() {
   useEffect(() => {
     const introTimer = setTimeout(() => {
       setShowIntro(false)
-    }, 5500)
+    }, 7000)
 
     return () => clearTimeout(introTimer)
   }, [])
@@ -77,7 +77,7 @@ export default function HeroSlider() {
         </div>
       ) : (
         /* The Slide Phase: Completely static text and buttons, changing instantly */
-        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-6">
+        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-6 hero-fade-in">
           <h1 className="text-white text-4xl md:text-7xl font-bold max-w-5xl leading-tight">
             {slides[current].title}
           </h1>

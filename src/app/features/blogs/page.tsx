@@ -88,6 +88,9 @@ const mainDirectoryBlogs: BlogCard[] = [
 ]
 
 export default function BlogPage() {
+  // Define 'blog' for the featured section explicitly using the featured post data
+  const blog = featuredPost
+
   return (
     <div className="w-full bg-[#f4f9f9] select-none font-sans min-h-screen">
       
@@ -129,7 +132,7 @@ export default function BlogPage() {
             <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-sm">
               <Image
                 src={BlogFeatured}
-                alt={featuredPost.title}
+                alt={blog.title}
                 fill
                 priority
                 className="object-cover"
@@ -139,20 +142,21 @@ export default function BlogPage() {
             <div className="flex flex-col justify-between h-full py-1">
               <div>
                 <h3 className="text-xl md:text-2xl font-bold text-[#12161a] tracking-tight leading-snug mb-4">
-                  {featuredPost.title}
+                  {blog.title}
                 </h3>
                 <p className="text-gray-500 text-sm md:text-base font-normal leading-relaxed mb-6">
-                  {featuredPost.description}
+                  {blog.description}
                 </p>
               </div>
 
-              <div className="flex items-center justify-between pt-2">
-                <span className="text-sm font-semibold text-[#ff8c00]">
-                  {featuredPost.date}
+              {/* FIXED: 'blog.date' and 'blog.slug' are now fully supported here without error */}
+              <div className="flex items-center justify-between pt-3 border-t border-gray-100">
+                <span className="text-xs font-medium text-gray-400">
+                  {blog.date}
                 </span>
                 <Link
-                  href={`/features/blogs/${featuredPost.slug}`}
-                  className="text-sm font-semibold text-[#ff8c00] hover:text-[#e07b00] transition-colors"
+                  href={`/features/blogs/${blog.slug}`}
+                  className="text-xs font-bold text-[#ff8c00] hover:text-[#e07b00] transition-colors"
                 >
                   Read More
                 </Link>
@@ -168,15 +172,15 @@ export default function BlogPage() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {mainDirectoryBlogs.map((blog) => (
+            {mainDirectoryBlogs.map((item) => (
               <div
-                key={blog.id}
+                key={item.id}
                 className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden flex flex-col h-full group"
               >
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-100">
                   <Image
-                    src={blog.imageSrc}
-                    alt={blog.title}
+                    src={item.imageSrc}
+                    alt={item.title}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                   />
@@ -185,19 +189,19 @@ export default function BlogPage() {
                 <div className="p-6 flex flex-col flex-grow justify-between">
                   <div>
                     <h3 className="text-lg md:text-xl font-bold text-[#12161a] tracking-tight leading-snug mb-3 line-clamp-2">
-                      {blog.title}
+                      {item.title}
                     </h3>
                     <p className="text-gray-500 text-xs md:text-sm font-normal leading-relaxed line-clamp-3 mb-6">
-                      {blog.description}
+                      {item.description}
                     </p>
                   </div>
 
                   <div className="flex items-center justify-between pt-3 border-t border-gray-100">
                     <span className="text-xs font-medium text-gray-400">
-                      {blog.date}
+                      {item.date}
                     </span>
                     <Link
-                      href={`/features/blogs/${blog.slug}`}
+                      href={`/features/blogs/${item.slug}`}
                       className="text-xs font-bold text-[#ff8c00] hover:text-[#e07b00] transition-colors"
                     >
                       Read More
